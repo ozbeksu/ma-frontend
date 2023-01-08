@@ -1,0 +1,25 @@
+.header-block {
+  .bg-image {
+    background-position: center;
+    background-size: cover;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .wrapper {
+    background-color: var(--header-content-bg);
+    padding: 2rem 0;
+  }
+
+  .content {
+    .title {
+      color: var(--header-title-color);
+    }
+
+    .description {
+      color: var(--header-description-color);
+    }
+  }
+}

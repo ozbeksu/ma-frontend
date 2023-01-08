@@ -1,0 +1,29 @@
+.card {
+  border-radius: var(--card-border-radius);
+  border-color: var(--card-border-color);
+  border-width: var(--card-border-width);
+  border-style: var(--card-border-style);
+
+  .bg-image {
+    height: var(--card-image-height);
+  }
+
+  .content {
+    padding: 1rem;
+
+    .title {
+      color: var(--card-title-color);
+
+      a {
+        color: var(--link-color);
+        &:hover {
+          color: var(--link-hover-color);
+        }
+      }
+    }
+
+    .description {
+      color: var(--card-description-color);
+    }
+  }
+}

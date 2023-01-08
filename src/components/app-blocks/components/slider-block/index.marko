@@ -1,0 +1,26 @@
+import {getImageUrl} from '~/utils/helpers';
+$ {
+  const {slides} = input;
+  const style = image => ({backgroundImage: `url(${getImageUrl(image)})`});
+}
+
+<if(slides?.length)>
+  <section.slider-block>
+    <div.swiper>
+      <div.swiper-wrapper>
+        <for|{title, description, image}, i| of=slides>
+          <div.slide.swiper-slide style=style(image)>
+            <div.content>
+              <div.container>
+                <h3.title>${title}</h3>
+                <p.description>${description}</p>
+              </div>
+            </div>
+          </div>
+        </for>
+      </div>
+      <div.swiper-button-prev/>
+      <div.swiper-button-next/>
+    </div>
+  </section>
+</if>

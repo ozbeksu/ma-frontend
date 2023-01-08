@@ -1,0 +1,20 @@
+$ {
+  const {title, description, image, links} = input;
+  const url = image?.sizes?.xlarge?.url;
+}
+
+<section.header-block>
+  <div.bg-image style={backgroundImage: `url(${url})`}>
+    <div.wrapper>
+      <div.content.container>
+        <h2.title>${title}</h2>
+        <p.description>${description}</p>
+        <if(links?.length)>
+          <for|link, i| of=links>
+            <cta-block ...link/>
+          </for>
+        </if>
+      </div>
+    </div>
+  </div>
+</section>

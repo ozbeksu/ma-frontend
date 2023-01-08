@@ -1,0 +1,22 @@
+import {getCardWidthClass} from '~/utils/helpers';
+$ {
+  const {title, slug, description, size, links, image} = input;
+  const imageStyle = {backgroundImage: `url(${image?.sizes?.medium?.url})`};
+  const cardClass = `card ${getCardWidthClass(size)}`;
+}
+
+<article class=cardClass>
+  <div.bg-image style=imageStyle/>
+  <div.content>
+    <if(slug)>
+      <h4.title><a href=`/blog/${slug}`>${title}</a></h4>
+    </if>
+    <else><h4.title>${title}</h4> </else>
+    <p.description>${description}</p>
+    <if(links?.length)>
+      <for|link, i| of=links>
+        <a-cta ...link/>
+      </for>
+    </if>
+  </div>
+</article>

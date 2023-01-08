@@ -1,0 +1,29 @@
+:root {
+  --swiper-theme-color: var(--slider-arrow-color) !important;
+}
+
+.slider-block {
+  width: 100%;
+  height: var(--slide-height);
+  position: relative;
+  .slide {
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    height: var(--slide-height);
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    width: 100%;
+    background-color: var(--slide-content-bg);
+    .title {
+      color: var(--slider-title-color);
+    }
+    .description {
+      color: var(--slider-description-color);
+    }
+  }
+}

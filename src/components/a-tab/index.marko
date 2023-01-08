@@ -1,0 +1,12 @@
+$ const {title, content, tabClass} = input;
+
+<if(content?.length)>
+  <article.tab>
+    <h3.title>${title}</h3>
+    <div class=`content ${tabClass}`>
+      <for|item, i| of=content>
+        <a-tag ...item/>
+      </for>
+    </div>
+  </article>
+</if>

@@ -1,0 +1,39 @@
+$ {
+  const {
+    type,
+    text,
+    value = {},
+    children = [],
+    underline,
+    bold,
+    italic,
+  } = input;
+  const textStyleConfig = {underline, bold, italic};
+}
+
+<if(type)>
+  <if(type === 'link')>
+    <a-link ...input/>
+  </if>
+  <else-if(type === 'upload')>
+    <a-media ...input/>
+  </else-if>
+  <else>
+    <type>
+      <if(text)>
+        <a-text text=text ...textStyleConfig/>
+      </if>
+      <for|child, i| of=children>
+        <a-tag ...child/>
+      </for>
+    </type>
+  </else>
+</if>
+<else>
+  <if(text)>
+    <a-text text=text ...textStyleConfig/>
+  </if>
+  <for|child, i| of=children>
+    <a-tag ...child/>
+  </for>
+</else>

@@ -1,0 +1,17 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.grid {
+  display: flex;
+  margin: 2rem 0;
+  gap: var(--listing-grid-gutter-width);
+}
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+}

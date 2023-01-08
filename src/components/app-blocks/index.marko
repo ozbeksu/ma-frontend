@@ -1,0 +1,33 @@
+import {BLOCK_TYPES} from '~/utils/enums';
+$ const {blocks} = input;
+
+<main.blocks>
+  <for|block, index| of=blocks>
+    <if(block.blockType === BLOCK_TYPES.Hero)>
+      <hero-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.Slider)>
+      <slider-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.Content)>
+      <content-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.Listing)>
+      <listing-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.CallToAction)>
+      <section.cta-block>
+        <div.container><div.mv4><cta-block ...block/></div></div>
+      </section>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.Card)>
+      <card-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.Expandable)>
+      <expandable-block ...block/>
+    </if>
+    <if(block.blockType === BLOCK_TYPES.FormBlock)>
+      <form-block ...block.form/>
+    </if>
+  </for>
+</main>

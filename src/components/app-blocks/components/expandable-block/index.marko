@@ -1,0 +1,11 @@
+$ const {contents} = input;
+
+<if(contents?.length)>
+  <section.expandable-block>
+    <div.container>
+      <for|content, i| of=contents>
+        <a-collapsable ...content/>
+      </for>
+    </div>
+  </section>
+</if>

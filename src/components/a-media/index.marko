@@ -1,0 +1,9 @@
+$ {
+  const {title, value, children} = input;
+  const {url, width, height, sizes, mimeType} = value;
+  const text = children[0]?.text;
+}
+
+<if(mimeType.includes('image/'))>
+  <img src=url alt=title>
+</if>

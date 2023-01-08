@@ -1,0 +1,12 @@
+$ {
+  const {linkType, url, newTab, linkClass, icon, children} = input;
+  const text = children[0]?.text;
+  const target = newTab ? '_blank' : '_self';
+}
+
+<a class=linkClass href=url target=target>
+  <if(icon)>
+    <i class=`bi bi-${icon}`> <!--space--></i>
+  </if>
+  ${text}
+</a>

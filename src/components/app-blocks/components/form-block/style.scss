@@ -1,0 +1,44 @@
+.form-block {
+  .title {
+    color: var(--form-message-title-color);
+  }
+
+  .form {
+    width: 40%;
+    margin: 2rem 0;
+  }
+
+  .form-control {
+    margin: 1rem 0;
+
+    .input,
+    .textarea {
+      border-radius: var(--input-border-radius);
+      border-color: var(--input-border-color);
+      border-width: var(--input-border-width);
+      border-style: var(--input-border-style);
+      width: 100%;
+      padding: 0.5rem;
+      color: #000;
+      background-color: #fff;
+      &:hover {
+        color: #fff;
+        background-color: #000;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        border-radius: var(--input-border-radius);
+      }
+    }
+
+    .label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+  }
+}

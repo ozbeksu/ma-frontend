@@ -1,0 +1,48 @@
+header {
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: flex;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    margin-right: auto;
+  }
+
+  .logo {
+    width: 10rem !important;
+    text-align: center;
+    a {
+      color: var(--color-white);
+      font-size: calc(var(--body-font-size) * 1.4);
+    }
+  }
+
+  nav {
+    li {
+      display: inline-block;
+      background-color: var(--color-white);
+
+      a {
+        display: block;
+        padding: 1.5rem 2rem;
+        color: var(--color-black);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+          background-color: var(--color-black);
+          color: var(--color-white);
+          transition: all 400ms ease-out;
+        }
+      }
+    }
+  }
+}

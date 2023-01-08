@@ -1,0 +1,8 @@
+<article.collapsable on-click('handleToggle')>
+  <h3.title>${state.title}</h3>
+  <div class=`content ${state.isCollapsed ? 'collapsed' : ''}`>
+    <for|item, i| of=state.content>
+      <a-tag ...item/>
+    </for>
+  </div>
+</article>

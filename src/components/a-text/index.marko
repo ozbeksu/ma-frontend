@@ -1,0 +1,7 @@
+import {getTextContentClasses} from '~/utils/helpers';
+$ {
+  const {text, underline, bold, italic} = input;
+  const textClasses = getTextContentClasses({underline, bold, italic});
+}
+
+<span class=textClasses>${text}</span>

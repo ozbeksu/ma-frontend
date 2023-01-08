@@ -1,0 +1,9 @@
+<app-layout>
+  <@head>
+    <title>${data?.title}</title>
+    <meta name='description' content=(data?.meta?.description)>
+    <meta name='keywords' content=(data?.meta?.keywords)>
+  </@head>
+  <@body><app-header/><app-blocks blocks=data?.blocks/></@body>
+  <@footing><app-footer/></@footing>
+</app-layout>

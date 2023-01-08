@@ -1,0 +1,30 @@
+$ {
+  const {name, action, file, reference, icon, isPrimary, isExternal} = input;
+  const btnClass = isPrimary ? 'btn-primary' : 'btn-default';
+  const target = isExternal ? '_blank' : '_self';
+}
+
+<if(action === 'download')>
+  <button type='button' class=btnClass>
+    <if(icon)>
+      <i class=`bi bi-${icon}`> <!--space--></i>
+    </if>
+    ${name}
+  </button>
+</if>
+<if(action === 'file')>
+  <a href=file.url class=btnClass target=target>
+    <if(icon)>
+      <i class=`bi bi-${icon}`> <!--space--></i>
+    </if>
+    ${name}
+  </a>
+</if>
+<if(action === 'reference')>
+  <a href=reference.url class=btnClass target=target>
+    <if(icon)>
+      <i class=`bi bi-${icon}`> <!--space--></i>
+    </if>
+    ${name}
+  </a>
+</if>

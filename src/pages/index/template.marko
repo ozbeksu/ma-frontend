@@ -1,0 +1,12 @@
+<app-layout>
+  <@head>
+    <title>${data?.title}</title>
+    <meta name='description' content=(data?.meta?.description)>
+    <meta name='keywords' content=(data?.meta?.keywords)>
+  </@head>
+  <@body>
+    <app-header/>
+    <section><div.container><h1>${data?.title}</h1></div><dev-block/></section>
+  </@body>
+  <@footing><app-footer/></@footing>
+</app-layout>
