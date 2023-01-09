@@ -1,0 +1,28 @@
+$primary: rgb(29, 78, 216);
+$primary-rgb: 29, 78, 216;
+$secondary: #334155;
+$success: #16a34a;
+$info: #0ea5e9;
+$warning: #facc15;
+$danger: #ef4444;
+$light: #f8fafc;
+$dark: #0f172a;
+$default: #334155;
+$text: #0f172a;
+$white: #ffffff;
+$black: #0f0f0f;
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+  default: $default,
+  text: $text,
+  white: $white,
+  black: $black,
+);
