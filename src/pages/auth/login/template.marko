@@ -1,5 +1,3 @@
-$ const {user} = input;
-
 <app-layout>
   <@head>
     <title>${data?.title}</title>
@@ -7,13 +5,11 @@ $ const {user} = input;
     <meta name='keywords' content=(data?.meta?.keywords)>
   </@head>
   <@body>
-    <app-header user=data?.user/>
-    <section>
-      <div.container>
-        <h1>${data?.title}</h1>
-      </div>
-      <dev-block/>
-    </section>
+    <app-header/>
+    <if(data?.user?.email)>
+      <div.container>You are already logged in as : ${data?.user?.email}</div>
+    </if>
+    <else><login-form user=data?.user/> </else>
   </@body>
   <@footing><app-footer/></@footing>
 </app-layout>

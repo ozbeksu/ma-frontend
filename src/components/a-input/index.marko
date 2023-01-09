@@ -1,0 +1,28 @@
+import {FORM_INPUT_TYPES} from '~/utils/enums';
+$ const {field} = input;
+
+<div.form-control>
+  <label.label for=field.name>
+    ${field.label}:
+    <if(field.required)>
+      <span.text-danger>*</span>
+    </if>
+  </label>
+  <if(field.blockType === 'textarea')>
+    <textarea.textarea
+      id=field.name
+      name=field.name
+      required=field.required
+      rows=field.rows || '4'
+      cols=field.cols || '40'
+    />
+  </if>
+  <if(FORM_INPUT_TYPES.includes(field.blockType))>
+    <input.input
+      id=field.name
+      name=field.name
+      type=field.blockType
+      required=field.required
+    >
+  </if>
+</div>

@@ -2,7 +2,7 @@
   <h3.title>${state.title}</h3>
   <div class=`content ${state.isCollapsed ? 'collapsed' : ''}`>
     <for|item, i| of=state.content>
-      <a-tag ...item/>
+      <a-tag key=i ...item/>
     </for>
   </div>
 </article>

@@ -14,6 +14,10 @@ export const BLOCKS = {
   Listing: 'listing-block',
   Content: 'content-block',
   Slider: 'slider-block',
+  CallToAction: 'cta-block',
+  Card: 'card-block',
+  FormBlock: 'form-block',
+  Expandable: 'expandable-block',
 };
 
 export const IMAGE_SIZES = {

@@ -4,7 +4,7 @@ $ const {contents} = input;
   <section.expandable-block>
     <div.container>
       <for|content, i| of=contents>
-        <a-collapsable ...content/>
+        <a-collapsable key=i ...content/>
       </for>
     </div>
   </section>

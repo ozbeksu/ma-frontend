@@ -11,7 +11,7 @@ $ {
         <p.description>${description}</p>
         <if(links?.length)>
           <for|link, i| of=links>
-            <cta-block ...link/>
+            <cta-block key=i ...link/>
           </for>
         </if>
       </div>

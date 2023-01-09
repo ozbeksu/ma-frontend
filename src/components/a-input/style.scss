@@ -1,0 +1,23 @@
+textarea.invalid,
+input.invalid,
+.just-validate-error-field {
+  border-color: var(--color-danger) !important;
+}
+
+.invalid-label,
+.just-validate-error-label {
+  color: var(--color-danger);
+}
+
+.valid,
+.just-validate-success-field {
+  border-color: var(--color-success) !important;
+}
+
+textarea.valid,
+input.valid {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: var(--color-success);
+}

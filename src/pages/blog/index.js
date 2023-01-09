@@ -1,10 +1,13 @@
-import axios from 'axios';
+import httpClient from '~/utils/httpClient';
 import template from './template.marko';
-import {API_ENDPOINT} from '~/constants';
+import {pageContext} from '~/constants';
 
-export default async (_, res) => {
-  const url = `${API_ENDPOINT}/api/pages/blog`;
-  const {data} = await axios.get(url);
+export default async ({cookies, session}, res) => {
+  const user = session.isAuth ? session.user : null;
 
-  res.marko(template, {...data.doc});
+  pageContext.promises.getPageBySlug = httpClient.get('/pages/content/blog', {
+    headers: {Authorization: `JWT ${cookies['token']}`},
+  });
+  const {data} = await httpClient.get('/globals/settings/meta/blog');
+  res.marko(template, {...pageContext, user, ...data});
 };

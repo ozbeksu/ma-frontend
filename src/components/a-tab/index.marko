@@ -5,7 +5,7 @@ $ const {title, content, tabClass} = input;
     <h3.title>${title}</h3>
     <div class=`content ${tabClass}`>
       <for|item, i| of=content>
-        <a-tag ...item/>
+        <a-tag key=i ...item/>
       </for>
     </div>
   </article>

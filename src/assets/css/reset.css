@@ -399,3 +399,15 @@ progress {
 [hidden] {
   display: none !important;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}

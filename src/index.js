@@ -1,12 +1,16 @@
 import {Router} from 'express';
 
 import indexPage from './pages/index';
-import authPage from './pages/auth';
+import loginPage from './pages/auth/login';
+import logout from './pages/auth/logout';
+import profilePage from './pages/profile';
 import blogPage from './pages/blog';
 import blogSinglePage from './pages/blog/single';
 
 export const router = Router()
   .get('/', indexPage)
-  .get('/login', authPage)
+  .get('/login', loginPage)
+  .get('/logout', logout)
+  .get('/profile', profilePage)
   .get('/blog', blogPage)
   .get('/blog/:slug', blogSinglePage);

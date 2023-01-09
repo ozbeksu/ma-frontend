@@ -1,9 +1,26 @@
+$ const {user} = input;
+
 <app-layout>
   <@head>
     <title>${data?.title}</title>
     <meta name='description' content=(data?.meta?.description)>
     <meta name='keywords' content=(data?.meta?.keywords)>
   </@head>
-  <@body><app-header/><app-blocks blocks=data?.blocks/></@body>
+  <@body>
+    <app-header user=data?.user/>
+    <await(data?.promises?.getPageBySlug) client-reorder=true>
+      <@placeholder>
+        <label>Loading… <progress /></label>
+      </@placeholder>
+
+      <@then|res|>
+        <app-blocks blocks=res?.data?.blocks/>
+      </@then>
+
+      <@catch|err|>
+        ${err.name} error: ${err.message}
+      </@catch>
+    </await>
+  </@body>
   <@footing><app-footer/></@footing>
 </app-layout>

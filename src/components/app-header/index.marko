@@ -1,11 +1,26 @@
+import {menu} from '~/routes';
+$ {
+  const {user} = input;
+  const links = [
+    ...menu,
+    user?.email
+      ? {name: 'logout', label: 'Logout', url: '/logout'}
+      : {name: 'login', label: 'Login', url: '/login'},
+  ];
+}
+
 <header>
   <div.container>
-    <div.wrapper>
-      <div.logo><a.white href='/'>✱ Asterix</a></div>
-    </div>
+    <div.wrapper><div.logo><a.white href='/'>✱ Asterix</a></div></div>
     <nav>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/blog'>Blog</a></li>
+      <for|link, i| of=links>
+        <if(link.protected)>
+          <if(user?.email)>
+            <li key=i><a href=link.url>${link.label}</a></li>
+          </if>
+        </if>
+        <else><li key=i><a href=link.url>${link.label}</a></li></else>
+      </for>
     </nav>
   </div>
 </header>

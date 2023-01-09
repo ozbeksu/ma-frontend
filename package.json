@@ -12,6 +12,7 @@
     "start": "cross-env NODE_ENV=production node --enable-source-maps index.js"
   },
   "dependencies": {
+    "@marko-tags/context": "^2.2.2",
     "@marko/express": "^2.0.0",
     "axios": "^1.2.2",
     "compression": "^1.7.4",
@@ -20,6 +21,7 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "helmet": "^6.0.1",
+    "just-validate": "^4.0.1",
     "marko": "^5.21.3",
     "pino-http": "^8.3.1",
     "pino-pretty": "^9.1.1",
@@ -27,11 +29,8 @@
     "swiper": "^8.4.5"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.13",
-    "@iconify/json": "^2.2.2",
     "@marko/compiler": "^5.22.1",
     "@marko/vite": "^2.3.4",
-    "@unocss/preset-icons": "^0.48.0",
     "cross-env": "^7.0.3",
     "marked": "^4.0.18",
     "postcss": "^8.1.0",
@@ -41,7 +40,6 @@
     "rimraf": "^3.0.2",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
-    "unocss": "^0.48.0",
     "vite": "^3.0.3"
   },
   "type": "module"

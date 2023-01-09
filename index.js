@@ -2,32 +2,35 @@ import {once} from 'events';
 import express from 'express';
 import markoMiddleware from '@marko/express';
 import compressionMiddleware from 'compression';
-import pinoHttp from 'pino-http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import authRedirect from './src/middlewares/authRedirect.js';
+import setAuthSession from './src/middlewares/setAuthSession.js';
 
 const devEnv = 'development';
 const {NODE_ENV = devEnv, PORT = 3000} = process.env;
 const corsOptions = {origin: '*', optionsSuccessStatus: 200};
+const sessionOptions = {
+  secret: 'm$%jkGNA%s5QJg6r*!d6*K2J@@%zbZo9M%DDGfx@',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {secure: true},
+};
 
 console.time('Start');
 
 const app = express()
-  // .use(pinoHttp())
   .use(cors(corsOptions))
-  .use(
-    session({
-      secret: 'm$%jkGNA%s5QJg6r*!d6*K2J@@%zbZo9M%DDGfx@',
-      resave: false,
-      saveUninitialized: true,
-      cookie: {secure: true},
-    }),
-  )
+  .use(cookieParser())
+  .use(session(sessionOptions))
   .use(bodyParser.urlencoded({extended: false}))
   .use(bodyParser.json())
   .use(compressionMiddleware())
-  .use(markoMiddleware());
+  .use(markoMiddleware())
+  .use(setAuthSession)
+  .use(authRedirect);
 
 if (NODE_ENV === devEnv) {
   const {createServer} = await import('vite');
@@ -35,8 +38,8 @@ if (NODE_ENV === devEnv) {
     appType: 'custom',
     server: {middlewareMode: true},
   });
-  app.use(devServer.middlewares);
   app
+    .use(devServer.middlewares)
     .use(async (req, res, next) => {
       try {
         const {router} = await devServer.ssrLoadModule('./src/index.js');

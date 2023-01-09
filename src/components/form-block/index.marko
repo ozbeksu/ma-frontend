@@ -1,0 +1,23 @@
+import {FORM_INPUT_TYPES} from '~/utils/enums';
+
+<section.form-block>
+  <div.container>
+    <div.mv4>
+      <h3.title>${state.title}</h3>
+      <if(state.isValid)>
+        <div.confirmation-message>
+          <content-block content=state.confirmationMessage/>
+        </div>
+      </if>
+      <else>
+        <form.form id=state.id on-submit('handleSubmit') autocomplete='off'>
+          <div.error-messages/>
+          <for|field, i| of=state.fields>
+            <a-input key=i field=field/>
+          </for>
+          <button.btn-primary type='submit'>${state.submitButtonLabel}</button>
+        </form>
+      </else>
+    </div>
+  </div>
+</section>
