@@ -1,8 +1,14 @@
+import {setResourseToGlobalContext, getPageContext} from '~/utils/helpers';
+import {globalContext, SETTINGS_URL} from '~/constants';
 import template from './template.marko';
-import {pageContext} from '~/constants';
 
 export default async ({session}, res) => {
-  const user = session.isAuth ? session.user : null;
+  await setResourseToGlobalContext(globalContext, SETTINGS_URL);
 
-  res.marko(template, {...pageContext, user});
+  res.marko(
+    template,
+    getPageContext(globalContext, SETTINGS_URL, {
+      user: session.isAuth ? session.user : null,
+    }),
+  );
 };

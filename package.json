@@ -7,8 +7,8 @@
     "build": "rimraf dist && npm run build:server && npm run build:client",
     "build:client": "cross-env NODE_ENV=production vite build",
     "build:server": "cross-env NODE_ENV=production vite build --ssr src/index.js",
-    "dev": "node --enable-source-maps index.js | pino-pretty",
-    "dev:inspect": "node --inspect --enable-source-maps index.js | pino-pretty",
+    "dev": "node --enable-source-maps index.js | pino-pretty -c",
+    "dev:inspect": "node --inspect --enable-source-maps index.js | pino-pretty -c",
     "start": "cross-env NODE_ENV=production node --enable-source-maps index.js"
   },
   "dependencies": {

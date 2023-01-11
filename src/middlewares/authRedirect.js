@@ -1,4 +1,4 @@
-const authRoutes = ['/blog', '/profile'];
+const authRoutes = ['/profile'];
 
 export default async ({originalUrl, session}, res, next) => {
   if (!authRoutes.includes(originalUrl)) {

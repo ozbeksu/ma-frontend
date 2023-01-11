@@ -1,3 +1,4 @@
+import httpClient from './httpClient.js';
 import {IMAGE_SIZES} from './enums.js';
 
 /**
@@ -78,6 +79,7 @@ export const getValidationRules = fieldRules =>
  */
 export const getUserDataFromToken = token => {
   let user;
+
   if (token) {
     const userString = new Buffer(token.split('.')[1], 'base64');
     user = JSON.parse(userString.toString('ascii'));
@@ -85,4 +87,47 @@ export const getUserDataFromToken = token => {
   }
 
   return user;
+};
+
+/**
+ * @param {object} ctx Global context
+ * @param {string} url
+ * @param {unknown} data
+ * @returns {object}
+ */
+export const getPageContext = (ctx, url, data) => {
+  const {cache, ...rest} = ctx;
+
+  return {...rest, ...cache[url], ...data};
+};
+
+/**
+ * @param {object} ctx Global context
+ * @param {string} url
+ */
+export const setResourseToGlobalContext = async (ctx, url) => {
+  if (!ctx.cache[url]) {
+    const {data} = await httpClient.get(url);
+
+    ctx.cache[url] = data;
+  }
+};
+
+/**
+ * @param {object} ctx Global context
+ * @param {{user: object, token: string}} auth
+ * @param {{key: string, url: string}} params
+ */
+export const setPromiseToGlobalContext = (ctx, auth, {key, url}) => {
+  ctx.promises[key] = httpClient.auth(auth).get(url);
+};
+
+/**
+ * @param {string} slug
+ * @returns {object}
+ */
+export const getPageMetaBySlug = async slug => {
+  const {data} = await httpClient.get(`/globals/settings/meta/${slug}`);
+
+  return data;
 };

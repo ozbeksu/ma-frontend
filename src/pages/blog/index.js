@@ -1,13 +1,24 @@
-import httpClient from '~/utils/httpClient';
+import {
+  setResourseToGlobalContext,
+  setPromiseToGlobalContext,
+  getPageContext,
+  getPageMetaBySlug,
+} from '~/utils/helpers';
+import {globalContext, SETTINGS_URL} from '~/constants';
 import template from './template.marko';
-import {pageContext} from '~/constants';
 
 export default async ({cookies, session}, res) => {
   const user = session.isAuth ? session.user : null;
 
-  pageContext.promises.getPageBySlug = httpClient.get('/pages/content/blog', {
-    headers: {Authorization: `JWT ${cookies['token']}`},
-  });
-  const {data} = await httpClient.get('/globals/settings/meta/blog');
-  res.marko(template, {...pageContext, user, ...data});
+  await setResourseToGlobalContext(globalContext, SETTINGS_URL);
+  setPromiseToGlobalContext(
+    globalContext,
+    {user, token: cookies['token']},
+    {key: 'getPageBySlug', url: '/pages/content/blog'},
+  );
+
+  const data = await getPageMetaBySlug('blog');
+  const context = getPageContext(globalContext, SETTINGS_URL, {...data, user});
+
+  res.marko(template, context);
 };

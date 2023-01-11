@@ -9,7 +9,7 @@ export const menu = [
     name: 'blog',
     label: 'Blog',
     url: '/blog',
-    protected: true,
+    protected: false,
   },
   {
     name: 'profile',
@@ -27,22 +27,22 @@ export default [
     protected: false,
   },
   {
-    name: 'login',
-    label: 'Login',
-    url: '/login',
-    protected: false,
-  },
-  {
     name: 'blog',
     label: 'Blog',
     url: '/blog',
-    protected: true,
+    protected: false,
   },
   {
     name: 'profile',
     label: 'Profile',
     url: '/profile',
     protected: true,
+  },
+  {
+    name: 'login',
+    label: 'Login',
+    url: '/login',
+    protected: false,
   },
   {
     name: 'logout',

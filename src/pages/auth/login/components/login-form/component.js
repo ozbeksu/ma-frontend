@@ -44,8 +44,7 @@ export default class {
       .catch(err => console.log(err))
       .then(({data}) => {
         document.cookie = `token=${data?.token}`;
-        localStorage.setItem('user', JSON.stringify(data?.user));
-        this.state.user = data?.user;
+        window.location.href = '/';
       });
   }
 }
